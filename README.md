@@ -10,6 +10,6 @@ allprojects {
   }  
 }  
 dependencies {  
-  implementation 'com.github.User:Repo:Tag'  
+  implementation 'com.github.yalong0521:utils:v0.3'  
 }  
 ```
