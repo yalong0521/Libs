@@ -12,7 +12,7 @@ object ConvertUtils {
         return (pxValue / AppUtils.getApplication().resources.displayMetrics.density + 0.5).toFloat()
     }
 
-    fun colorResIdToValue(@ColorRes color: Int): Int {
+    fun colorId2Value(@ColorRes color: Int): Int {
         return AppUtils.getApplication().resources.getColor(color)
     }
 }

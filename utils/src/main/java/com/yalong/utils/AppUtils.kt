@@ -5,10 +5,13 @@ import android.app.Application
 import android.content.Context
 import java.lang.reflect.Method
 
+@SuppressLint("PrivateApi")
 object AppUtils {
     private var mApplication: Application? = null
 
-    @SuppressLint("PrivateApi")
+    /**
+     * 全局获取Application
+     */
     fun getApplication(): Application {
         if (mApplication == null) {
             var method: Method
