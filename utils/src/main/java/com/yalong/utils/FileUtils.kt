@@ -6,7 +6,7 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 object FileUtils {
-    fun readFile2String(inputStream: InputStream): String? {
+    fun readFileToString(inputStream: InputStream): String? {
         var reader: BufferedReader? = null
         try {
             val sb = StringBuilder()

@@ -7,6 +7,7 @@ object GenerateUtils {
         val file = File("./app/src/main/res/values/dimens.xml")
         var reader: BufferedReader? = null
         val sw320 = StringBuilder()
+        val sw360 = StringBuffer()
         val sw480 = StringBuilder()
         val sw600 = StringBuilder()
         val sw720 = StringBuilder()
@@ -28,6 +29,7 @@ object GenerateUtils {
                         )
                     )
                     sw320.append(start).append(num * 320 / baseSW.size).append(end).append("\r\n")
+                    sw360.append(start).append(num * 360 / baseSW.size).append(end).append("\r\n")
                     sw480.append(start).append(num * 480 / baseSW.size).append(end).append("\r\n")
                     sw600.append(start).append(num * 600 / baseSW.size).append(end).append("\r\n")
                     sw720.append(start).append(num * 720 / baseSW.size).append(end).append("\r\n")
@@ -36,6 +38,7 @@ object GenerateUtils {
                     sw1280.append(start).append(num * 1280 / baseSW.size).append(end).append("\r\n")
                 } else {
                     sw320.append(tempString).append("\r\n")
+                    sw360.append(tempString).append("\r\n")
                     sw480.append(tempString).append("\r\n")
                     sw600.append(tempString).append("\r\n")
                     sw720.append(tempString).append("\r\n")
@@ -47,6 +50,8 @@ object GenerateUtils {
             reader.close()
             println("<!--  sw320 -->")
             println(sw320)
+            println("<!--  sw360 -->")
+            println(sw360)
             println("<!--  sw480 -->")
             println(sw480)
             println("<!--  sw600 -->")
@@ -61,6 +66,7 @@ object GenerateUtils {
             println(sw1280)
 
             val sw320file = "./app/src/main/res/values-w320dp/dimens.xml"
+            val sw360file = "./app/src/main/res/values-w360dp/dimens.xml"
             val sw480file = "./app/src/main/res/values-w480dp/dimens.xml"
             val sw600file = "./app/src/main/res/values-w600dp/dimens.xml"
             val sw720file = "./app/src/main/res/values-w720dp/dimens.xml"
@@ -68,6 +74,7 @@ object GenerateUtils {
             val sw960file = "./app/src/main/res/values-w960dp/dimens.xml"
             val sw1280file = "./app/src/main/res/values-w1280dp/dimens.xml"
             writeFile(sw320file, sw320.toString())
+            writeFile(sw360file, sw360.toString())
             writeFile(sw480file, sw480.toString())
             writeFile(sw600file, sw600.toString())
             writeFile(sw720file, sw720.toString())
@@ -108,6 +115,7 @@ object GenerateUtils {
 
     enum class SW(val size: Int) {
         SW320(320),
+        SW360(360),
         SW480(480),
         SW600(600),
         SW720(720),
