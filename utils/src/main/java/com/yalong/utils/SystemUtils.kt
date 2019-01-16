@@ -35,4 +35,12 @@ object SystemUtils {
             imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
         }
     }
+
+    fun getScreenSize(): ArrayList<Int> {
+        val resources = AppUtils.getApplication().resources
+        val displayMetrics = resources.displayMetrics
+        val widthPixels = displayMetrics.widthPixels
+        val heightPixels = displayMetrics.heightPixels
+        return arrayListOf(widthPixels, heightPixels)
+    }
 }
