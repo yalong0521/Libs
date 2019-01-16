@@ -47,7 +47,7 @@ object ToastUtils {
         mToast = Toast.makeText(AppUtils.getApplication(), hint, duration).also {
             it.duration = duration
             it.setText(hint)
-            val offsetY = if (gravity == Gravity.BOTTOM) ConvertUtils.dp2px(50f).toInt() else 0
+            val offsetY = if (gravity == Gravity.BOTTOM) ConvertUtils.dpToPx(50f) else 0
             it.setGravity(gravity, 0, offsetY)
             it.show()
         }
