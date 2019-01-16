@@ -5,7 +5,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 
-object PhoneUtils {
+object SystemUtils {
     /**
      * 隐藏软键盘
      * 可以和[.showKeyboard]搭配使用，进行键盘的显示隐藏控制。
