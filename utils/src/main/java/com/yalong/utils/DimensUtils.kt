@@ -25,14 +25,12 @@ object DimensUtils {
     fun generateDimens(baseWidthDp: WidthInDp) {
         val file = File("./app/src/main/res/values/dimens.xml")
         var reader: BufferedReader? = null
-        val w320 = StringBuilder()
-        val w360 = StringBuffer()
-        val w480 = StringBuilder()
-        val w600 = StringBuilder()
-        val w720 = StringBuilder()
-        val w800 = StringBuilder()
-        val w960 = StringBuilder()
-        val w1280 = StringBuilder()
+        val sw320 = StringBuilder()
+        val sw360 = StringBuffer()
+        val sw480 = StringBuilder()
+        val sw600 = StringBuilder()
+        val sw720 = StringBuilder()
+        val sw800 = StringBuilder()
         try {
             println("生成不同分辨率：")
             reader = BufferedReader(FileReader(file))
@@ -47,59 +45,47 @@ object DimensUtils {
                             tempString!!.indexOf("</dimen>") - 2
                         )
                     )
-                    w320.append(start).append(num * 320 / baseWidthDp.widthInDp).append(end).append("\r\n")
-                    w360.append(start).append(num * 360 / baseWidthDp.widthInDp).append(end).append("\r\n")
-                    w480.append(start).append(num * 480 / baseWidthDp.widthInDp).append(end).append("\r\n")
-                    w600.append(start).append(num * 600 / baseWidthDp.widthInDp).append(end).append("\r\n")
-                    w720.append(start).append(num * 720 / baseWidthDp.widthInDp).append(end).append("\r\n")
-                    w800.append(start).append(num * 800 / baseWidthDp.widthInDp).append(end).append("\r\n")
-                    w960.append(start).append(num * 960 / baseWidthDp.widthInDp).append(end).append("\r\n")
-                    w1280.append(start).append(num * 1280 / baseWidthDp.widthInDp).append(end).append("\r\n")
+                    sw320.append(start).append(num * 320 / baseWidthDp.widthInDp).append(end).append("\r\n")
+                    sw360.append(start).append(num * 360 / baseWidthDp.widthInDp).append(end).append("\r\n")
+                    sw480.append(start).append(num * 480 / baseWidthDp.widthInDp).append(end).append("\r\n")
+                    sw600.append(start).append(num * 600 / baseWidthDp.widthInDp).append(end).append("\r\n")
+                    sw720.append(start).append(num * 720 / baseWidthDp.widthInDp).append(end).append("\r\n")
+                    sw800.append(start).append(num * 800 / baseWidthDp.widthInDp).append(end).append("\r\n")
                 } else {
-                    w320.append(tempString).append("\r\n")
-                    w360.append(tempString).append("\r\n")
-                    w480.append(tempString).append("\r\n")
-                    w600.append(tempString).append("\r\n")
-                    w720.append(tempString).append("\r\n")
-                    w800.append(tempString).append("\r\n")
-                    w960.append(tempString).append("\r\n")
-                    w1280.append(tempString).append("\r\n")
+                    sw320.append(tempString).append("\r\n")
+                    sw360.append(tempString).append("\r\n")
+                    sw480.append(tempString).append("\r\n")
+                    sw600.append(tempString).append("\r\n")
+                    sw720.append(tempString).append("\r\n")
+                    sw800.append(tempString).append("\r\n")
                 }
             }
             reader.close()
-            println("<!-- w320 -->")
-            println(w320)
-            println("<!-- w360 -->")
-            println(w360)
-            println("<!-- w480 -->")
-            println(w480)
-            println("<!-- w600 -->")
-            println(w600)
-            println("<!-- w720 -->")
-            println(w720)
-            println("<!-- w800 -->")
-            println(w800)
-            println("<!-- w960 -->")
-            println(w960)
-            println("<!-- w1280 -->")
-            println(w1280)
+            println("<!-- sw320 -->")
+            println(sw320)
+            println("<!-- sw360 -->")
+            println(sw360)
+            println("<!-- sw480 -->")
+            println(sw480)
+            println("<!-- sw600 -->")
+            println(sw600)
+            println("<!-- sw720 -->")
+            println(sw720)
+            println("<!-- sw800 -->")
+            println(sw800)
 
-            val w320file = "./app/src/main/res/values-w320dp/dimens.xml"
-            val w360file = "./app/src/main/res/values-w360dp/dimens.xml"
-            val w480file = "./app/src/main/res/values-w480dp/dimens.xml"
-            val w600file = "./app/src/main/res/values-w600dp/dimens.xml"
-            val w720file = "./app/src/main/res/values-w720dp/dimens.xml"
-            val w800file = "./app/src/main/res/values-w800dp/dimens.xml"
-            val w960file = "./app/src/main/res/values-w960dp/dimens.xml"
-            val w1280file = "./app/src/main/res/values-w1280dp/dimens.xml"
-            writeFile(w320file, w320.toString())
-            writeFile(w360file, w360.toString())
-            writeFile(w480file, w480.toString())
-            writeFile(w600file, w600.toString())
-            writeFile(w720file, w720.toString())
-            writeFile(w800file, w800.toString())
-            writeFile(w960file, w960.toString())
-            writeFile(w1280file, w1280.toString())
+            val sw320file = "./app/src/main/res/values-sw320dp/dimens.xml"
+            val sw360file = "./app/src/main/res/values-sw360dp/dimens.xml"
+            val sw480file = "./app/src/main/res/values-sw480dp/dimens.xml"
+            val sw600file = "./app/src/main/res/values-sw600dp/dimens.xml"
+            val sw720file = "./app/src/main/res/values-sw720dp/dimens.xml"
+            val sw800file = "./app/src/main/res/values-sw800dp/dimens.xml"
+            writeFile(sw320file, sw320.toString())
+            writeFile(sw360file, sw360.toString())
+            writeFile(sw480file, sw480.toString())
+            writeFile(sw600file, sw600.toString())
+            writeFile(sw720file, sw720.toString())
+            writeFile(sw800file, sw800.toString())
         } catch (e: IOException) {
             e.printStackTrace()
         } finally {
@@ -133,17 +119,15 @@ object DimensUtils {
     }
 
     /**
-     * 相对宽度DP值
+     * 绝对宽度DP值
      */
     enum class WidthInDp(val widthInDp: Int) {
-        W320(320),
-        W360(360),
-        W480(480),
-        W600(600),
-        W720(720),
-        W800(800),
-        W960(960),
-        W1280(1280);
+        SW320(320),
+        SW360(360),
+        SW480(480),
+        SW600(600),
+        SW720(720),
+        SW800(800),
     }
 
     /**
